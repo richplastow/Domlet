@@ -7,12 +7,46 @@
   <link rel="stylesheet" type="text/css" href="usage.css">
   <script src="../build/domlet.js"></script>
   <script>
-    addEventListener('load', function () {
-      var
-        domlet = new Domlet({
+addEventListener('load', function () {
+    var i, l
+
+        //// Micro jQuery. 
+      , $  = document.querySelector.bind(document)
+      , $$ = document.querySelectorAll.bind(document)
+
+        //// Element refs. 
+      , $$actions = $$('#actions .button')
+      , $log      =  $('#log')
+
+        //// Create a domlet instance. 
+      , domlet = new Domlet({
         })
-      ;
-    });
+
+        //// Reveals the current state of `domlet`. 
+      , stringify = function () {
+            $log.innerHTML =
+                'JSON.stringify(domlet):\n\n'
+               + JSON.stringify(domlet, null, '  ');
+        }
+    ;
+
+    //// Enable the action buttons. 
+    for (i=0, l=$$actions.length; i<l; i++) {
+        $$actions[i].addEventListener('click', function (event) {
+            event.preventDefault();
+            try {
+                eval(this.innerHTML);
+            } catch (error) {
+                $log.innerHTML = 'Error:\n\n' + error;
+                return;
+            }
+            stringify();
+        });
+    }
+
+    //// Reveal the initial state of `domlet`. 
+    stringify();
+});
   </script>
 </head>
 <body>
@@ -21,7 +55,14 @@
     >/</span><a href="../index.html#/doc/usage" title="Domlet Usage">Usage</a><span
     >/</span><a href="01-basic-usage.html" title="Refresh this page">Domlet Basic Usage</a>
   </header>
-  <main id="main"></main>
+  <main>
+    <nav id="actions">
+      <a href="#" class="button">domlet.add();</a><a
+         href="#" class="button">domlet.read();</a><a
+         href="#" class="button">domlet.browse();</a>
+    </nav>
+    <pre id="log">Loading...</pre>
+  </main>
   <footer>
     <a href="http://richplastow.com/" title="Rich Plastow Homepage">Rich Plastow 2015</a>
   </footer>

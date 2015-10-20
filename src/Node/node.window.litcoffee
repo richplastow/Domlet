@@ -1,18 +1,18 @@
-SomeClass
-=========
+Node.Window
+===========
 
 @todo describe
 
 
 #### @todo describe
 
-    class SomeClass
-      C: 'SomeClass'
-      toString: -> '[object SomeClass]'
+    class Node.Window extends Node
+      C: 'Node.Window'
+      toString: -> '[object Node.Window]'
 
       constructor: (config={}) ->
-        M = "/domlet/src/SomeClass/SomeClass.litcoffee
-          SomeClass()\n  "
+        M = "/domlet/src/Node/Node.Window.litcoffee
+          Node.Window()\n  "
 
 
 
@@ -40,8 +40,8 @@ Methods
 @todo describe
 
       xx: (xx) ->
-        M = "/domlet/src/SomeClass/SomeClass.litcoffee
-          SomeClass.xx()\n  "
+        M = "/domlet/src/Node/Node.Window.litcoffee
+          Node.Window.xx()\n  "
 
 
 
@@ -57,7 +57,7 @@ Functions
 @todo describe
 
     xx = (xx) ->
-      M = "/domlet/src/SomeClass/SomeClass.litcoffee
+      M = "/domlet/src/Node/Node.Window.litcoffee
         xx()\n  "
 
 

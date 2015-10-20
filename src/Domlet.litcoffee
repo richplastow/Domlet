@@ -19,10 +19,11 @@ Properties
 ----------
 
 
-#### `x <xx>`
-@todo describe
+#### `windows <array of Windows>`
+Like a browser, a Domlet instance may have several Windows open. These can have 
+some knowledge of each other, eg cookies, localStorage, or `postMessage()`. 
 
-        @x = null
+        @windows = []
 
 
 
@@ -31,15 +32,18 @@ Methods
 -------
 
 
-#### `xx()`
-- `xx <xx>`  xx
-- `<xx>`     xx
+#### `add()`
+- `<integer>`  index of the new window in `windows`
 
-@todo describe
+Create a new Window instance, record it in `windows`, and return the index. 
 
-      xx: (xx) ->
+      add: ->
         M = "/domlet/src/Domlet.litcoffee
-          Domlet.xx()\n  "
+          Domlet.add()\n  "
+        index = @windows.length
+        @windows[index] = new Node.Window @,
+          index: index
+        index
 
 
 

@@ -83,6 +83,20 @@ footer {
 }
 
 
+/* LAYOUT: MAIN */
+main {
+  position:        absolute;
+  overflow-y:      auto;
+  top:             2em;
+  left:            0;
+  right:           0;
+  bottom:          1.333em;
+  padding:         0.5em;
+  font-size:       1.5em;
+  line-height:     1.2;
+}
+
+
 /* TYPOGRAPHY */
 body {
   font-family: 'Arial', sans-serif;
@@ -101,19 +115,34 @@ header span {
   font-weight:     bold;
   font-size:       1.5em;
 }
+#log {
+  font-family: monaco, monospace; 
+}
 
 
-/* INTERACTION AND COLOR */
-header:hover,
-footer:hover {
-  color:           #f3e;
+/* BUTTON */
+.button {
+  display: inline-block;
+  padding: 0.3em  1em  0.4em  1em;
+  margin:  0.25em;
+  border-radius: 4px;
+  background:      rgba(16,16,16,0.9);
+  color:           #bbb;
+  text-decoration: none;
+  cursor:          pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+
+/* INTERACTION */
+header a:focus,
+footer a:focus,
+.button:focus {
+  outline:         none;
+  color:           #6ac;
 }
 header a:hover,
-footer a:hover {
+footer a:hover,
+.button:hover {
   color:           #0f9;
-}
-header a:focus,
-footer a:focus {
-  outline:         none;
-  color:           #9ac;
 }
